@@ -132,6 +132,58 @@
           <string>point</string>
          </property>
         </widget>
+        <widget class="QLabel" name="label">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>140</y>
+           <width>71</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Taille Palet</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="petit">
+         <property name="geometry">
+          <rect>
+           <x>80</x>
+           <y>140</y>
+           <width>87</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Petit</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="moyen">
+         <property name="geometry">
+          <rect>
+           <x>140</x>
+           <y>140</y>
+           <width>87</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Moyen</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="grand">
+         <property name="geometry">
+          <rect>
+           <x>220</x>
+           <y>140</y>
+           <width>87</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Grand</string>
+         </property>
+        </widget>
        </widget>
       </item>
       <item row="2" column="0" rowspan="2" colspan="2">

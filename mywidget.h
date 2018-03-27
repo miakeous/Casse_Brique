@@ -16,7 +16,9 @@ class MyWidget : public QGLWidget
 public:
     explicit MyWidget(QWidget * parent = nullptr);
     void setPos(float x, float y, float z);
-
+    TableauJeux getTableau(){return *tableau;}
+    void update(){updateGL();}
+    void setTaille(float x);
 private :
 
     GLUquadric* quadrique =  gluNewQuadric();

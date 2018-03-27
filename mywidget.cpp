@@ -6,7 +6,7 @@ MyWidget::MyWidget(QWidget *parent) :
 {
     // Reglage de la taille/position
     gluQuadricDrawStyle(quadrique, GLU_FILL);
-
+     tableau = new TableauJeux();
 
 }
 
@@ -14,7 +14,7 @@ MyWidget::MyWidget(QWidget *parent) :
 void MyWidget::initializeGL(){
     glClearColor(0.1f, 0.1f, 0.1f, 0.0f);
     // Activation du zbuffer
-    tableau = new TableauJeux();
+
     glEnable(GL_DEPTH_TEST);
 
 
@@ -48,13 +48,13 @@ void MyWidget::paintGL(){
     glPopMatrix();
     tableau->affiche();
 
-    glPushMatrix();
+     glPushMatrix();
     glBegin(GL_POLYGON);
-        glColor3f(0,255,0);
-       glVertex3f(-20,0,10);
-       glVertex3f(20,0,10);
-       glVertex3f(20,0,-10);
-       glVertex3f(-20,0,-10);
+        //glColor3f(0,255,0);
+  //     glVertex3f(-20,0,10);
+  //     glVertex3f(20,0,10);
+   //    glVertex3f(20,0,-10);
+    //   glVertex3f(-20,0,-10);
     glEnd();
     glPopMatrix();
 
@@ -65,5 +65,10 @@ void MyWidget::setPos(float x, float y, float z){
     posx = x;
     posy = y;
     posz = z;
+    updateGL();
+}
+
+void MyWidget::setTaille(float x){
+   this->getTableau().getPalet().setTaille(x);
     updateGL();
 }

@@ -2,7 +2,7 @@
 
 TableauJeux::TableauJeux()
 {
-
+    palet = new Palet(0,255,255);
     for(int i=1 ;i <5; i++){
         for(int j=-5;j<5;j++){
             float v2 = rand() % 255 + 1;
@@ -21,13 +21,15 @@ TableauJeux::TableauJeux()
 
 void TableauJeux::affiche(){
     int i = 0;
+     palet->display();
     while ( i < m_Brique.size() )
     {
-
+            glPopMatrix();
             m_Brique[i]->display();
-
-        i++ ;
+            glPushMatrix();
+            i++ ;
     }
+
 
 }
 
@@ -42,3 +44,4 @@ void TableauJeux::reset(){
         }
     }
 }
+

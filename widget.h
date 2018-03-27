@@ -5,7 +5,9 @@
 #include "opencv2/opencv.hpp"
 #include <QTimer>
 #include <QDebug>
-
+#include <QGLWidget>
+#include "glu.h"
+#include <GLUT/glut.h>
 #include <cstdio>
 #include <iostream>
 
@@ -58,6 +60,9 @@ private:
 private slots :
     void affiche();
     void match();
+    void setTaille();
+    void setTaille1();
+    void setTaille2();
 };
 
 #endif // WIDGET_H

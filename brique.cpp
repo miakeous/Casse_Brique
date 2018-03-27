@@ -62,7 +62,8 @@ void Brique::display(){
 
 
 void Brique::rectangle(GLfloat posX, GLfloat posY, GLfloat posZ){
-    //glColor3f(couleur[0],couleur[1],couleur[2]);
+   // glPopMatrix();
+    glColor3f(couleur[0],couleur[1],couleur[2]);
     glBegin(GL_POLYGON);
         glColor3f(couleur[0],couleur[1],couleur[2]);
        glVertex3f(posX,posY,posZ);
@@ -105,4 +106,5 @@ void Brique::rectangle(GLfloat posX, GLfloat posY, GLfloat posZ){
        glVertex3f(posX+4,posY+3,posZ+3);
        glVertex3f(posX+4,posY,posZ+3);
     glEnd();
+  //  glPopMatrix();
 }

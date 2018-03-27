@@ -29,6 +29,10 @@ Widget::Widget(QWidget *parent) :
         timer2->start();
         timer2->connect(timer2, SIGNAL(timeout()),this, SLOT(affiche()));
         timer2->connect(timer2, SIGNAL(timeout()),this, SLOT(match()));
+        ui->petit->setChecked(true);
+        connect(ui->petit, SIGNAL(released()),this,SLOT(setTaille()));
+        connect(ui->moyen, SIGNAL(released()),this,SLOT(setTaille1()));
+        connect(ui->grand, SIGNAL(released()),this,SLOT(setTaille2()));
         //qDebug() << "dans l'open";
        // timer2->connect(timer2, SIGNAL(timeout()),this, SLOT(tire()));
         //timer2->connect(timer2,SIGNAL(timeout()),this,SLOT(deplace()));
@@ -41,6 +45,52 @@ Widget::~Widget()
     delete webCam_;
 }
 
+void Widget::setTaille(){
+    if(ui->petit->isChecked()){
+        if(ui->moyen->isChecked()){
+            ui->moyen->setChecked(false);
+        }
+        if(ui->grand->isChecked()){
+            ui->grand->setChecked(false);
+        }
+        ui->openGLWidget->setTaille(5);
+        ui->openGLWidget->update();
+
+    }
+
+}
+
+
+void Widget::setTaille1(){
+
+    if(ui->moyen->isChecked()){
+        if(ui->petit->isChecked()){
+            ui->petit->setChecked(false);
+        }
+        if(ui->grand->isChecked()){
+            ui->grand->setChecked(false);
+        }
+        ui->openGLWidget->setTaille(50);
+        ui->openGLWidget->update();
+    }
+
+}
+
+void Widget::setTaille2(){
+
+    if(ui->grand->isChecked()){
+        if(ui->moyen->isChecked()){
+            ui->moyen->setChecked(false);
+        }
+        if(ui->petit->isChecked()){
+            ui->petit->setChecked(false);
+        }
+        ui->openGLWidget->setTaille(100);
+        ui->openGLWidget->update();
+    }
+
+
+}
 void Widget::affiche(){
 
 
