@@ -14,9 +14,11 @@ class MyWidget : public QGLWidget
 {
     Q_OBJECT
 public:
+    TableauJeux *tableau;
     explicit MyWidget(QWidget * parent = nullptr);
     void setPos(float x, float y, float z);
     TableauJeux getTableau(){return *tableau;}
+
     void update(){updateGL();}
     void setTaille(float x);
 private :
@@ -25,7 +27,7 @@ private :
     float posx = 0;
     float posy = 0;
     float posz = 0;
-    TableauJeux *tableau;
+
     void initializeGL();
 
      // Fonction de redimensionnement
@@ -37,6 +39,11 @@ private :
 signals:
 
 public slots:
+    void setTaillep();
+    void setTaillem();
+    void setTailleg();
+    void setPosPaletg();
+    void setPosPaletd();
 };
 
 #endif // MYWIDGET_H

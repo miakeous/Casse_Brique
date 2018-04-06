@@ -10,6 +10,8 @@
 #include <GLUT/glut.h>
 #include <cstdio>
 #include <iostream>
+#include "tableaujeux.h"
+
 
 //#include <glwidget.h>
 
@@ -28,6 +30,7 @@ public:
     ~Widget();
 
 private:
+    TableauJeux *tableau;
     Ui::Widget *ui;
     //Mat match(Mat frame);
     Mat frame1,frame2,frameRect1,frameRect2;
@@ -63,6 +66,10 @@ private slots :
     void setTaille();
     void setTaille1();
     void setTaille2();
+
+    signals :
+    void gauche();
+    void droite();
 };
 
 #endif // WIDGET_H

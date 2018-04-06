@@ -25,12 +25,12 @@ Brique::Brique(float x,float y, float r, float v, float b,QString filename)
     //glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
     //glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
     //gluQuadricTexture(quadrique, GL_TRUE);
-    qDebug() << "Rouge";
+   /* qDebug() << "Rouge";
     qDebug() << couleur[0];
     qDebug() << "Vert";
     qDebug() << couleur[1];
     qDebug() << "Bleu";
-    qDebug() << couleur[2];
+    qDebug() << couleur[2];*/
 
 
 }
@@ -48,13 +48,14 @@ void Brique::display(){
     glLoadIdentity();
     glPushMatrix();
 
-    glTranslatef(posx,40,posy -15 );
+
+    rectangle(0,0,0);
     //glMaterialfv(GL_FRONT,GL_AMBIENT,couleur);
     //glEnable(GL_TEXTURE_2D);
     //glBindTexture( GL_TEXTURE_2D, texture);
      //glColor3f(couleur[0],couleur[1],couleur[2]);
 
-    rectangle(0,0,0);
+
     //gluSphere(quadrique, 5, 50, 50);
     //glDisable(GL_TEXTURE_2D);
     glPopMatrix();
@@ -62,49 +63,51 @@ void Brique::display(){
 
 
 void Brique::rectangle(GLfloat posX, GLfloat posY, GLfloat posZ){
-   // glPopMatrix();
+
+    glPopMatrix();
+    glTranslatef(posx,40,posy -15 );
     glColor3f(couleur[0],couleur[1],couleur[2]);
     glBegin(GL_POLYGON);
-        glColor3f(couleur[0],couleur[1],couleur[2]);
+    //    glColor3f(couleur[0],couleur[1],couleur[2]);
        glVertex3f(posX,posY,posZ);
        glVertex3f(posX,posY+ 3,posZ);
        glVertex3f(posX,posY+ 3,posZ+3);
        glVertex3f(posX,posY,posZ+3);
     glEnd();
     glBegin(GL_POLYGON);
-        glColor3f(couleur[0],couleur[1],couleur[2]);
+      //  glColor3f(couleur[0],couleur[1],couleur[2]);
        glVertex3f(posX+4,posY,posZ);
        glVertex3f(posX+4,posY+ 3,posZ);
        glVertex3f(posX+4,posY+ 3,posZ+3);
        glVertex3f(posX+4,posY,posZ+3);
     glEnd();
     glBegin(GL_POLYGON);
-        glColor3f(couleur[0],couleur[1],couleur[2]);
+        //glColor3f(couleur[0],couleur[1],couleur[2]);
        glVertex3f(posX,posY,posZ);
        glVertex3f(posX,posY,posZ+3);
        glVertex3f(posX+4,posY,posZ+3);
        glVertex3f(posX+4,posY,posZ);
     glEnd();
     glBegin(GL_POLYGON);
-        glColor3f(couleur[0],couleur[1],couleur[2]);
+        //glColor3f(couleur[0],couleur[1],couleur[2]);
        glVertex3f(posX,posY+3,posZ);
        glVertex3f(posX,posY+3,posZ+3);
        glVertex3f(posX+4,posY+3,posZ+3);
        glVertex3f(posX+4,posY+3,posZ);
     glEnd();
     glBegin(GL_POLYGON);
-        glColor3f(couleur[0],couleur[1],couleur[2]);
+      //  glColor3f(couleur[0],couleur[1],couleur[2]);
        glVertex3f(posX,posY,posZ);
        glVertex3f(posX,posY+3,posZ);
        glVertex3f(posX+4,posY+3,posZ);
        glVertex3f(posX+4,posY,posZ);
     glEnd();
     glBegin(GL_POLYGON);
-        glColor3f(couleur[0],couleur[1],couleur[2]);
+      //  glColor3f(couleur[0],couleur[1],couleur[2]);
        glVertex3f(posX,posY,posZ+3);
        glVertex3f(posX,posY+3,posZ+3);
        glVertex3f(posX+4,posY+3,posZ+3);
        glVertex3f(posX+4,posY,posZ+3);
     glEnd();
-  //  glPopMatrix();
+    glPopMatrix();
 }

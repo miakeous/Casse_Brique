@@ -6,18 +6,23 @@
 class Palet
 {
 public:
-    Palet(float r, float v, float b);
+    Palet(float r, float v, float b,float tail);
+
     void display();
-    void setPos(float x, float y, float z);
+    void setPos(float x);
     void setTaille(float x);
+    float taille = 0;
+    float getTaille(){return taille;}
+
+public slots :
 
 private:
     float posx= 0;
     float posy = 0;
     float posz = 20;
-    float taille = 10;
+
     float couleur[4];
-    void rectangle(GLfloat posX, GLfloat posY, GLfloat posZ, GLfloat longueur, GLfloat largeur, GLfloat hauteur);
+    void rectangle(GLfloat posX, GLfloat posY, GLfloat posZ, GLfloat largeur, GLfloat hauteur);
 
 };
 

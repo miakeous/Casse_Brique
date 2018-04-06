@@ -6,7 +6,7 @@ MyWidget::MyWidget(QWidget *parent) :
 {
     // Reglage de la taille/position
     gluQuadricDrawStyle(quadrique, GLU_FILL);
-     tableau = new TableauJeux();
+    tableau = new TableauJeux();
 
 }
 
@@ -37,6 +37,7 @@ void MyWidget::paintGL(){
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     glOrtho(-50,50,-50,50,-50,50);
+    //glFrustum(-50,50,-50,50,-20,50);
     gluLookAt(0,20,20,0,0,0,0,1,0);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
@@ -48,15 +49,15 @@ void MyWidget::paintGL(){
     glPopMatrix();
     tableau->affiche();
 
-     glPushMatrix();
-    glBegin(GL_POLYGON);
+    // glPushMatrix();
+    //glBegin(GL_POLYGON);
         //glColor3f(0,255,0);
   //     glVertex3f(-20,0,10);
   //     glVertex3f(20,0,10);
    //    glVertex3f(20,0,-10);
     //   glVertex3f(-20,0,-10);
-    glEnd();
-    glPopMatrix();
+    //glEnd();
+    //glPopMatrix();
 
 
 }
@@ -68,7 +69,28 @@ void MyWidget::setPos(float x, float y, float z){
     updateGL();
 }
 
-void MyWidget::setTaille(float x){
-   this->getTableau().getPalet().setTaille(x);
+void MyWidget::setTaillep(){
+   this->getTableau().setTaille(10.0);
     updateGL();
 }
+void MyWidget::setTaillem(){
+   this->getTableau().setTaille(15.0);
+    updateGL();
+}
+void MyWidget::setTailleg(){
+   this->getTableau().setTaille(20.0);
+    updateGL();
+}
+
+void MyWidget::setPosPaletd(){
+     //qDebug()<<"droite";
+    this->getTableau().setPosPaletd();
+    updateGL();
+}
+
+void MyWidget::setPosPaletg(){
+     //qDebug()<<"gauche";
+    this->getTableau().setPosPaletg();
+     updateGL();
+}
+

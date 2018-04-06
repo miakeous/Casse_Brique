@@ -14,6 +14,7 @@ public:
     virtual ~Brique();
     void display();
     int getCol(QString a){return posy/4;}
+    GLfloat getColour(){return couleur[0];}
 private :
     float posx = 0;
     float posy = 0;

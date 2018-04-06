@@ -25,14 +25,21 @@ Widget::Widget(QWidget *parent) :
     if(webCam_->isOpened())
     {
 
+
         timer2 = new QTimer();
         timer2->start();
         timer2->connect(timer2, SIGNAL(timeout()),this, SLOT(affiche()));
         timer2->connect(timer2, SIGNAL(timeout()),this, SLOT(match()));
         ui->petit->setChecked(true);
+        connect(ui->petit, SIGNAL(released()),ui->openGLWidget,SLOT(setTaillep()));
+         connect(ui->moyen, SIGNAL(released()),ui->openGLWidget,SLOT(setTaillem()));
+          connect(ui->grand, SIGNAL(released()),ui->openGLWidget,SLOT(setTailleg()));
         connect(ui->petit, SIGNAL(released()),this,SLOT(setTaille()));
         connect(ui->moyen, SIGNAL(released()),this,SLOT(setTaille1()));
         connect(ui->grand, SIGNAL(released()),this,SLOT(setTaille2()));
+        connect(this,SIGNAL(gauche()),ui->openGLWidget,SLOT(setPosPaletg()));
+        connect(this,SIGNAL(droite()),ui->openGLWidget,SLOT(setPosPaletd()));
+
         //qDebug() << "dans l'open";
        // timer2->connect(timer2, SIGNAL(timeout()),this, SLOT(tire()));
         //timer2->connect(timer2,SIGNAL(timeout()),this,SLOT(deplace()));
@@ -53,8 +60,7 @@ void Widget::setTaille(){
         if(ui->grand->isChecked()){
             ui->grand->setChecked(false);
         }
-        ui->openGLWidget->setTaille(5);
-        ui->openGLWidget->update();
+
 
     }
 
@@ -70,8 +76,7 @@ void Widget::setTaille1(){
         if(ui->grand->isChecked()){
             ui->grand->setChecked(false);
         }
-        ui->openGLWidget->setTaille(50);
-        ui->openGLWidget->update();
+
     }
 
 }
@@ -85,8 +90,7 @@ void Widget::setTaille2(){
         if(ui->petit->isChecked()){
             ui->petit->setChecked(false);
         }
-        ui->openGLWidget->setTaille(100);
-        ui->openGLWidget->update();
+
     }
 
 
@@ -95,10 +99,7 @@ void Widget::affiche(){
 
 
     if (webCam_->read(frame1)) {   // Capture a frame
-      //  qDebug()<< "dans l'affichage";
-        //image = match(image.clone());
-        //frame2 = frame1.clone();
-        // Flip to get a mirror effect
+
         flip(frame1,frame1,1);
         cvtColor(Mat(frame1,*workingRect),frameRect1,COLOR_BGR2GRAY);
 
@@ -106,8 +107,7 @@ void Widget::affiche(){
         int result_rows = frame1.rows-templateHeight + 1;
         resultImage.create( result_cols, result_rows, CV_32FC1 );
 
-        // Invert Blue and Red color channels
-        //match();
+
 
 
 
@@ -136,10 +136,22 @@ void Widget::match(){
 
     // Draw green rectangle and the translation vector
         rectangle(frame2,*workingRect,Scalar( 0, 255, 0),2);
-       // qDebug() << workingCenter->x;
-        //qDebug() << workingCenter->x+vect.x;
-        position = vect.x;
-        ui->openGLWidget->setPos(position*2,0,0);
+      // qDebug() << "valeur de x";
+
+        //qDebug() << vect.x;
+
+        if(abs(vect.x)>4){
+              position = vect.x;
+        }
+        if(position<0){
+
+            emit gauche();
+        }else if(position>0){
+
+            emit droite();
+        }
+        //ui->openGLWidget->setPos(position*2,0,0);
+        //ui->openGLWidget->getTableau().getPalet().setPos(position*2);
         Point p(workingCenter->x+vect.x,workingCenter->y+vect.y);
         arrowedLine(frame2,*workingCenter,p,Scalar(255,255,255),2);
 

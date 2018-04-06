@@ -6,11 +6,15 @@ class TableauJeux
 {
 public:
     TableauJeux();
+    Palet *palet ;
     void reset();
     void affiche();
     Palet getPalet(){return *palet;}
+    void setTaille(float x);
+    void setPosPaletd();
+    void setPosPaletg();
 private :
-    Palet *palet ;
+
     std::vector<Brique *> m_Brique;
 };
 
