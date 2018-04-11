@@ -1,10 +1,8 @@
 #include "palet.h"
-#include <GLUT/glut.h>
-#include "glu.h"
-#include "QDebug"
+
 Palet::Palet(float r, float v, float b,float tail)
 {
-    taille= tail;
+    taille = tail;
     couleur[0] = r;
     couleur[1] = v;
     couleur[2] = b;
@@ -18,21 +16,19 @@ void Palet::display(){
     glLoadIdentity();
     glPushMatrix();
 
-
+    glTranslatef(posx,posy,posz);
     //glMaterialfv(GL_FRONT,GL_AMBIENT,couleur);
     //glEnable(GL_TEXTURE_2D);
     //glBindTexture( GL_TEXTURE_2D, texture);
      //glColor3f(couleur[0],couleur[1],couleur[2]);
-   // qDebug()<< posx;
+
     rectangle(0,0,0,0,10);
     //gluSphere(quadrique, 5, 50, 50);
     //glDisable(GL_TEXTURE_2D);
     glPopMatrix();
 }
 
-void Palet::rectangle(float posX, float posY, float posZ, float largeur, float hauteur){
-    glPushMatrix();
-    glTranslatef(posx,posy,posz);
+void Palet::rectangle(GLfloat posX, GLfloat posY, GLfloat posZ, GLfloat largeur, GLfloat hauteur){
     glColor3f(couleur[0],couleur[1],couleur[2]);
     glBegin(GL_POLYGON);
 
@@ -76,7 +72,6 @@ void Palet::rectangle(float posX, float posY, float posZ, float largeur, float h
        glVertex3f(posX+taille,posY+largeur,posZ+hauteur);
        glVertex3f(posX+taille,posY,posZ+hauteur);
     glEnd();
-    glPopMatrix();
 }
 
 

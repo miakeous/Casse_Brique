@@ -1,4 +1,5 @@
 #include "tableaujeux.h"
+#include "palet.h"
 #include "QDebug"
 TableauJeux::TableauJeux()
 {

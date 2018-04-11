@@ -1,13 +1,21 @@
 #ifndef MYWIDGET_H
 #define MYWIDGET_H
 
-//#include <QWidget>
+// include Pierre (mac)
+/*
 #include "glu.h"
 #include <GLUT/glut.h>
 #include <QApplication>
 #include <QGLWidget>
 #include "tableaujeux.h"
-
+#include<stdio.h>
+*/
+//include Manon (windows)
+#include <GL/glu.h>
+#include <GL/gl.h>
+#include <QApplication>
+#include <QGLWidget>
+#include "tableaujeux.h"
 #include<stdio.h>
 
 class MyWidget : public QGLWidget

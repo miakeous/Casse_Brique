@@ -1,6 +1,7 @@
 #ifndef WIDGET_H
 #define WIDGET_H
-
+// include Pierre (mac)
+/*
 #include <QWidget>
 #include "opencv2/opencv.hpp"
 #include <QTimer>
@@ -11,10 +12,19 @@
 #include <cstdio>
 #include <iostream>
 #include "tableaujeux.h"
+*/
 
-
-//#include <glwidget.h>
-
+//include Manon (windows)
+#include <QWidget>
+#include "opencv2/opencv.hpp"
+#include <QTimer>
+#include <QDebug>
+#include <QGLWidget>
+#include<GL/glu.h>
+#include <GL/gl.h>
+#include <cstdio>
+#include <iostream>
+#include"tableaujeux.h"
 using namespace cv;
 
 namespace Ui {
