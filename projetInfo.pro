@@ -28,14 +28,16 @@ SOURCES += main.cpp\
     mywidget.cpp \
     brique.cpp \
     tableaujeux.cpp \
-    palet.cpp
+    palet.cpp \
+    boule.cpp
 
 
 HEADERS  += widget.h \
     mywidget.h \
     brique.h \
     tableaujeux.h \
-    palet.h
+    palet.h \
+    boule.h
 
 
 

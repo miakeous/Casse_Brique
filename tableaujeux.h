@@ -2,6 +2,8 @@
 #define TABLEAUJEUX_H
 #include "brique.h"
 #include "palet.h"
+#include "boule.h"
+
 class TableauJeux
 {
 public:
@@ -14,7 +16,7 @@ public:
     void setPosPaletd();
     void setPosPaletg();
 private :
-
+    boule *myball;
     std::vector<Brique *> m_Brique;
 };
 

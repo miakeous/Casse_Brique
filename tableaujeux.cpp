@@ -17,7 +17,7 @@ TableauJeux::TableauJeux()
         }
     }
 
-
+    myball = new boule(255,0,255);
 }
 
 
@@ -33,7 +33,11 @@ void TableauJeux::affiche(){
 
             i++ ;
     }
-
+    if(myball->posdepart) // posdepart équivaut à posé sur le palet
+    {
+        myball->setPosX(palet->getPosX()+palet->getTaille()/2);
+    }
+    myball->display();
 
 }
 
