@@ -3,6 +3,7 @@
 #include "brique.h"
 #include "palet.h"
 #include "boule.h"
+#include "mur.h"
 
 class TableauJeux
 {
@@ -17,6 +18,10 @@ public:
     void setPosPaletg();
 private :
     boule *myball;
+    mur *gauche;
+    mur *droit;
+    mur *haut;
+    mur *bas;
     std::vector<Brique *> m_Brique;
 };
 
