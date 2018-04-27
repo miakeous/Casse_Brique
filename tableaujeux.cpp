@@ -17,7 +17,10 @@ TableauJeux::TableauJeux()
 
     myball = new boule(255,0,255);
 
-    gauche = new mur(-30,-50,100,3);
+    gauche = new mur(-30,-20,100,3, false);
+    droit = new mur(27,-20,100,3,false);
+    haut = new mur(-30,-20,60,3,true);
+
 }
 
 
@@ -38,7 +41,10 @@ void TableauJeux::affiche(){
         myball->setPosX(palet->getPosX()+palet->getTaille()/2);
     }
     myball->display();
+
     gauche->display();
+    droit->display();
+    haut->display();
 
 }
 

@@ -1,11 +1,12 @@
 #include "mur.h"
 
-mur::mur(int X,int Z, int height, int width)
+mur::mur(int X,int Z, int height, int width, bool rot)
 {
     posX = X;
     posZ = Z;
     hauteur = height;
     largeur = width;
+    tourne = rot;
 }
 
 void mur::display()
@@ -13,8 +14,8 @@ void mur::display()
     glLoadIdentity();
     glPushMatrix();
 
-    glTranslatef(posX,0, posZ);
-
+    glTranslatef(posX,40, posZ);
+    if(tourne){ glRotatef(90,0,1,0);}
     rectangle(0,0,0,5,hauteur,largeur);
 
     glPopMatrix();

@@ -16,7 +16,7 @@
 class mur
 {
 public:
-    mur(int X, int Z, int height, int width);
+    mur(int X, int Z, int height, int width, bool rot);
     void display();
     void rectangle(GLfloat posX, GLfloat posY, GLfloat posZ, GLfloat profondeur, GLfloat hauteur, GLfloat taille);
 
@@ -26,6 +26,7 @@ private:
     int posZ;
     int hauteur;
     int largeur;
+    bool tourne;
 };
 
 #endif // MUR_H

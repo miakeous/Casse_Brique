@@ -36,7 +36,7 @@ void MyWidget::paintGL(){
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glOrtho(-50,50,-50,50,-50,50);
+    glOrtho(-90,90,-50,50,-50,50);
     //glFrustum(-50,50,-50,50,-20,50);
     gluLookAt(0,20,20,0,0,0,0,1,0);
     glMatrixMode(GL_MODELVIEW);
